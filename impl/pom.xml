@@ -30,8 +30,10 @@
         <version>2.3.21</version>
     </parent>
     
+    <groupId>com.liferay.faces</groupId>
     <artifactId>jakarta.faces</artifactId>
     <packaging>jar</packaging>
+    <version>${project.parent.version}.LIFERAY-PATCHED-1</version>
     
     <name>Mojarra ${project.version}</name>
     <description>EE4J Compatible Implementation for Jakarta Faces API</description>
