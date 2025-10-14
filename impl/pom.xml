@@ -286,7 +286,7 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>4.0.0</version>
+                <version>5.1.8</version>
                 <extensions>true</extensions>
                 <executions>
                     <execution>
@@ -318,35 +318,37 @@
                             javax.faces.*;version=2.3,
                             com.sun.faces.*;version=2.3
                         </Export-Package>
-                        
+
                         <Import-Package>
-                            javax.faces.*,
-                            com.sun.faces.*,
-                            javax.servlet.annotation.*;resolution:=optional,
-                            javax.servlet.*,
+                            com.sun.enterprise.*;resolution:=optional,
+                            javax.annotation.*,
+                            javax.crypto.*,
                             javax.el.*,
-                            javax.inject.*,
+                            javax.enterprise.context.*,
+                            javax.enterprise.event;resolution:=optional,
                             javax.enterprise.inject.*,
                             javax.enterprise.util.*,
-                            javax.enterprise.context.*,
-                            javax.annotation.processing.*,
-                            javax.annotation.*;version="[1.0.0,2.0.0)",
-                            javax.crypto.*,
-                            javax.websocket.*;resolution:=optional,
                             javax.json.*;resolution:=optional,
-                            javax.validation.*;resolution:=optional,
-                            javax.enterprise.event;resolution:=optional,
-                            javax.ejb.*;resolution:=optional,
+                            javax.inject.*,
+                            javax.naming.*,
                             javax.persistence.*;resolution:=optional,
+                            javax.servlet;version="[3.1,4)",
+                            javax.servlet.annotation;version="[3.1,4)",
+                            javax.servlet.descriptor;version="[3.1,4)",
+                            javax.servlet.http;version="[3.1,4)",
+                            javax.servlet.resources;version="[3.1,4)",
+                            javax.servlet.jsp;version="[2.3,3)",
+                            javax.servlet.jsp.el;version="[2.3,3)",
+                            javax.servlet.jsp.resources;version="[2.3,3)",
+                            javax.servlet.jsp.tagext;version="[2.3,3)",
+                            javax.validation.*;resolution:=optional,
+                            javax.websocket.*;resolution:=optional,
                             javax.xml.*,
-                            org.w3c.dom.*,
-                            com.sun.enterprise.*;resolution:=optional,
+                            org.jboss.weld.*;resolution:=optional,
                             org.mortbay.jetty.annotations;resolution:=optional,
                             org.mortbay.jetty.plus.annotation;resolution:=optional,
-                            org.apache.*;resolution:=optional,
-                            org.jboss.weld.*;resolution:=optional,
-                            org.xml.sax.*,
-                            javax.naming.*
+                            org.w3c.dom.*,
+                            org.xml.sax.*
                         </Import-Package>
                         <!--
                             Allow Mojarra to load alternative AnnotationProvider, FaceletConfigResourceProvider,
@@ -364,8 +366,7 @@
                             osgi.serviceloader;filter:="(osgi.serviceloader=com.sun.faces.util.cdi11.CDIUtil)";
                             resolution:=optional;cardinality:=multiple,
                             osgi.serviceloader;filter:="(osgi.serviceloader=javax.faces.application.ApplicationConfigurationPopulator)";
-                            resolution:=optional;cardinality:=multiple,
-                            osgi.extender;filter:="(osgi.extender=osgi.serviceloader.processor)";resolution:=optional
+                            resolution:=optional;cardinality:=multiple
                         </Require-Capability>
                         <Provide-Capability>
                             osgi.extender;osgi.extender="jsp.taglib";uri="http://java.sun.com/jsf/html";
